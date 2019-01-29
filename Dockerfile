@@ -29,18 +29,15 @@ WORKDIR /srv
 RUN apt-get install -y nano
 
 
-#conus
+#Install conus classification package
 
 RUN git clone https://github.com/indigo-dc/conus-classification-theano -b package  && \
     cd conus-classification-theano && \
     pip install -e . && \
     cd ..
 
-
-RUN git clone https://github.com/indigo-dc/deepaas && \
-    cd deepaas && \
-    pip install -U . && \
-    cd ..
+#Install deepaas
+RUN pip install deepaas
 
 
 ENV SWIFT_CONTAINER_conus https://cephrgw01.ifca.es:8080/swift/v1/conus/
